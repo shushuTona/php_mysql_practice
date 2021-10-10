@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  web:
+    build: ./container/web
+    restart: always
+    tty: true
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+  db:
+    build: ./container/db
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    tty: true
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
