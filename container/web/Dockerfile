@@ -29,6 +29,8 @@ COPY ./httpd.conf /etc/httpd/conf/httpd.conf
 
 WORKDIR /var/www/html
 
+RUN mkdir public
+
 EXPOSE 80
 
 ENTRYPOINT ["/usr/sbin/httpd", "-DFOREGROUND"]
