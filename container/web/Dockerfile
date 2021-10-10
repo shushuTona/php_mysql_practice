@@ -11,8 +11,9 @@ RUN yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 # Apache sudo curl
 RUN yum install -y httpd sudo curl
 
-# git install
-RUN yum install git
+# git ver2系インストール
+RUN yum install -y http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm
+RUN yum install -y git
 
 # PHP
 RUN yum -y install --enablerepo=remi,remi-php74 php php-devel php-mbstring php-pdo php-xml php-gd php-fpm php-mysqlnd php-opcache php-pecl-zip libzip5
