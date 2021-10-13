@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    
+    RewriteCond %{REQUEST_URI} ^/api/
+    RewriteRule ^(.*)$ /app/api.php [R=301,L]
+</IfModule>

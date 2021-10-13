@@ -3,8 +3,10 @@ version: "3"
 services:
   web:
     build: ./container/web
-    restart: always
+    command: /sbin/init
     tty: true
+    privileged: true                           
+    restart: always
     ports:
       - "8080:80"
     depends_on:
