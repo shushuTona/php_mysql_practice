@@ -1,11 +1,7 @@
 <?php
-    define('APPLICATION_ROOT_DIR', '/var/www/php_mysql_practice/app/');
-    define('ROUTES_ROOT_DIR', '/var/www/php_mysql_practice/app/routes/');
-
-    require_once(APPLICATION_ROOT_DIR . 'env.php');
+    require_once('/var/www/php_mysql_practice/app/env.php');
 
     $request_uri = $_SERVER['REQUEST_URI'];
-
     if(
         preg_match('/^\/api\//', $request_uri)
     ) {
