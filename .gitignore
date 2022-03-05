@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 db_data
+vendor
 
 # testing
 /coverage
