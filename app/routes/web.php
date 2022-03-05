@@ -6,7 +6,7 @@
     $file = WEB_ROOT_DIR . (empty($_SERVER['QUERY_STRING']) ? $file : mb_strstr($file, '?', true) );
 
     // if ".html" does not exist at the end, add ".html" at the end.
-    $file = preg_match('/^.*(?<!\.html)$/', $file) ? ($file . '/index.html') : $file;
+    $file = preg_match('/^.*(?<!\.html)$/', $file) ? ($file . 'index.html') : $file;
 
     if(
         file_exists($file)

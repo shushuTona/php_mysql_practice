@@ -1,5 +1,5 @@
 <?php
-    class TestDB {
+    class Database {
         const HOST = 'db';
         const DB_NAME = 'test_db';
         const USER = 'root';
@@ -27,4 +27,4 @@
         }
     }
 
-    $test_db = new TestDB();
+    $test_db = new Database();
