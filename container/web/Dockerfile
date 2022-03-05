@@ -25,11 +25,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
 RUN yum -y install nodejs
 
+WORKDIR /var/www
+
+RUN git clone https://github.com/shushuTona/php_mysql_practice.git
+
 COPY ./httpd.conf /etc/httpd/conf/httpd.conf
-
-WORKDIR /var/www/html
-
-RUN mkdir public
 
 EXPOSE 80
 
