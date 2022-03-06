@@ -1,14 +1,14 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
+        # ファイル一覧機能を無効にする命令
         Options -MultiViews -Indexes
     </IfModule>
 
     RewriteEngine on
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteCond %{REQUEST_URI} !\.[^/\.]+$
+    RewriteRule .* %{REQUEST_URI}/ [R=301,L]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

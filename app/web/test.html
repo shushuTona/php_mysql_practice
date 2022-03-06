@@ -8,5 +8,35 @@
 </head>
 <body>
 <h1>test.html</h1>
+
+<div class="listArea"></div>
+
+<script>
+(async () => {
+    const listArea = document.querySelector( '.listArea' );
+    const fecthData = await fetch( '/api/test/' )
+                                                            .then( ( res ) => {
+                                                                return res.json();
+                                                            } );
+
+    const fragment = document.createDocumentFragment();
+    for(const dataKey in fecthData){
+        const heading = document.createElement('h2');
+        heading.textContent = dataKey;
+        
+        const list = document.createElement('ul');
+        fecthData[ dataKey ].forEach( ( itemData )  => {
+            const item = document.createElement('li');
+            item.textContent = itemData;
+            list.append( item );
+        });
+
+        fragment.append( heading );
+        fragment.append( list );
+    }
+
+    listArea.append( fragment );
+})();
+</script>
 </body>
 </html>
