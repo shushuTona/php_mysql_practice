@@ -5,7 +5,7 @@ services:
     build: ./container/web
     command: /sbin/init
     tty: true
-    privileged: true                           
+    privileged: true
     restart: always
     ports:
       - "8081:80"
