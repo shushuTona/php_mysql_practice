@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cookie.html</title>
+</head>
+<body>
+<h1>cookie.html</h1>
+
+<p class="text"></p>
+
+<script>
+(async () => {
+    const textElem = document.querySelector('.text');
+    $data = await fetch('/api/checkCookie/')
+                                                            .then((res) => {
+                                                                return res.json();
+                                                            });
+
+    const existCookie = $data.exist_cookie;
+
+    textElem.textContent = existCookie ? 'Exist Cookie!' : 'Not Exist Cookie';
+})();
+</script>
+</body>
+</html>

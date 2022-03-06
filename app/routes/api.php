@@ -1,6 +1,7 @@
 <?php
     $API_ROUTE_LIST = [
         '/api/test/' => 'Test.php',
+        '/api/checkCookie/' => 'CheckCookie.php',
     ];
 
     // remove query string
@@ -11,7 +12,6 @@
             $request_uri === $api_path
         ){
             require_once(API_ROOT_DIR . $class_path);
-        } else {
-            echo 'not found';
+            break;
         }
     }
