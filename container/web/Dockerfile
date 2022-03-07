@@ -33,6 +33,4 @@ RUN git clone https://github.com/shushuTona/php_mysql_practice.git
 
 EXPOSE 80
 
-RUN rm -f /var/run/apache2/apache2.pid
-
 ENTRYPOINT ["/usr/sbin/httpd", "-DFOREGROUND"]
