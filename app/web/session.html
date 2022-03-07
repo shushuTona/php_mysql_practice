@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>session.html</title>
+</head>
+<body>
+<h1>session.html</h1>
+
+<p class="count"></p>
+
+<script>
+( async () => {
+    const countElem = document.querySelector( '.count' );
+    $data = await fetch( '/api/testSession/' )
+        .then( ( res ) => {
+            return res.json();
+        } );
+
+    console.log($data);
+
+    const countNum = $data.count;
+    countElem.textContent = countNum;
+} )();
+</script>
+</body>
+</html>
