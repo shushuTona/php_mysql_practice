@@ -1,7 +1,8 @@
 <?php
     $API_ROUTE_LIST = [
-        '/api/test/' => 'Test.php',
-        '/api/checkCookie/' => 'CheckCookie.php',
+        '/api/test' => 'Test.php',
+        '/api/checkCookie' => 'CheckCookie.php',
+        '/api/testSession' => 'TestSession.php',
     ];
 
     // remove query string
