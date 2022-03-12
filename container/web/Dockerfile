@@ -9,7 +9,7 @@ RUN yum install -y epel-release
 RUN yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
 # Apache sudo curl
-RUN yum install -y httpd sudo curl
+RUN yum install -y httpd httpd-tools sudo curl
 
 # git ver2系インストール
 RUN yum install -y http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm
@@ -20,6 +20,11 @@ RUN yum -y install --enablerepo=remi,remi-php74 php php-devel php-mbstring php-p
 
 # composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# MySQL Clientのインストール（DBコンテナにmysqlコマンドで接続できるようにするため）
+RUN rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+RUN yum install -y https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+RUN yum install -y mysql-community-client.x86_64
 
 # Node.js
 RUN curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
@@ -33,4 +38,4 @@ RUN git clone https://github.com/shushuTona/php_mysql_practice.git
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/sbin/httpd", "-DFOREGROUND"]
+ENTRYPOINT apachectl -D FOREGROUND
